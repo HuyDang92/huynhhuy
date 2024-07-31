@@ -1,45 +1,53 @@
 import { Icon } from "@iconify/react";
 import React from "react";
+import { Link } from "react-scroll";
 
 const list = [
    {
       id: 1,
       name: "About me",
       icon: "bx:bx-user",
+      idDiv: "aboutMe",
    },
    {
       id: 2,
       name: "Story",
       icon: "bx:bx-book",
+      idDiv: "story",
    },
    {
       id: 3,
       name: "Skills",
       icon: "bx:bx-code-alt",
+      idDiv: "skills",
    },
    {
       id: 4,
       name: "Experience",
       icon: "bx:bx-briefcase",
+      idDiv: "experience",
    },
    {
       id: 5,
       name: "Projects",
       icon: "bx:bx-shopping-bag",
+      idDiv: "products",
    },
    {
       id: 6,
       name: "Interests",
       icon: "bx:bx-heart",
+      idDiv: "interests",
    },
    {
       id: 7,
       name: "Contact Me",
       icon: "bx:bx-mail-send",
+      idDiv: "contact",
    },
 ];
 
-function Header({ callBack }: any) {
+function Header() {
    const [theme, setTheme] = React.useState("light");
    const [open, setOpen] = React.useState(false);
    const toggleTheme = () => {
@@ -54,7 +62,7 @@ function Header({ callBack }: any) {
             <h1 style={{ textShadow: "0px 0px 2px #000" }} className=" text-3xl">
                D.H.HUY
             </h1>
-            <label className="swap swap-rotate">
+            <label className="swap swap-rotate bg-white/30 p-1 rounded-lg">
                <input onChange={toggleTheme} type="checkbox" className="theme-controller" value="synthwave" />
 
                {/* sun icon */}
@@ -72,7 +80,7 @@ function Header({ callBack }: any) {
                <div className="drawer-content w-fit">
                   <label
                      htmlFor="my-drawer"
-                     className="btn hover:scale-110 hover:bg-white/50 rounded-full px-2 py-1 bg-transparent border-none shadow-none"
+                     className="btn hover:scale-110 hover:bg-white/50  rounded-full px-2 py-1 bg-transparent border-none shadow-none"
                   >
                      <Icon icon="lucide:layout-dashboard" className="text-4xl" />
                   </label>
@@ -81,15 +89,16 @@ function Header({ callBack }: any) {
                   <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
                   <ul className="menu text-xl bg-base-200 text-base-content min-h-full w-80 p-4">
                      {list.map((item, index) => (
-                        <li
-                           key={index}
-                           onClick={() => {
-                              callBack(item?.id);
-                              setOpen(false);
-                           }}
-                        >
-                           <a>{item?.name}</a>
-                        </li>
+                        <Link activeClass="active" to={item?.idDiv} spy={true} smooth={true} offset={-120} duration={500}>
+                           <li
+                              key={index}
+                              onClick={() => {
+                                 setOpen(false);
+                              }}
+                           >
+                              <a>{item?.name}</a>
+                           </li>
+                        </Link>
                      ))}
                   </ul>
                </div>
