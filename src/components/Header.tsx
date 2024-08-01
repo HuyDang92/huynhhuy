@@ -31,7 +31,7 @@ const list = [
       id: 5,
       name: "Projects",
       icon: "bx:bx-shopping-bag",
-      idDiv: "products",
+      idDiv: "projects",
    },
    {
       id: 6,
