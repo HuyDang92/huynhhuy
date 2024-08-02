@@ -1,6 +1,8 @@
 import Slider from "react-slick";
+import { Image } from "antd";
+
 import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// import "slick-carousel/slick/slick-theme.css";
 const settings = {
    dots: false,
    infinite: true,
@@ -16,7 +18,7 @@ const projects = [
       description:
          "Website for learning English combined with playing online games in real-time, with the ability to make direct calls with each other. Chat with the latest AI ChatGPT to support learning, and engage in global activities.",
       role: "Website for learning English combined with playing online games in real-time, with the ability to make direct calls with each other. Features include rendering maps, rooms for moving characters set up in real-time, designing and maintaining the source code and the website, connect Socket, call video RTC,",
-      technologies: "ReactJS, Redux Toolkit, Axios, ReactQuery, FireBase, TailwindCSS, AntDesign, Zoom SDK, WebRTC...",
+      technologies: "ReactJS, Typescript, Redux Toolkit, React Query, Axios, FireBase, TailwindCSS, AntDesign, Framer Motion Zoom SDK, WebRTC...",
       link: "https://debate.englishwing.com/play",
    },
    {
@@ -26,7 +28,7 @@ const projects = [
       description: "A large web system for managing projects of lecturers and helping students to register to participate in learning",
       role: `Build user interface, connect APIs from Back-end team, optimize source code and website performance.
 Perform some main functions such as authentication (JWT), notification (Real Time), set up API controller (Redux Toolkit), handle interface and logic of other functions of the website.`,
-      technologies: " ReactJS, ReduxToolkit, RTK Query, TailwindCSS, Material Tailwind, MUI, Ag-grid, Echarts",
+      technologies: " ReactJS, Typescript, ReduxToolkit, RTK Query, TailwindCSS, Material Tailwind, AntDesign, Ag-grid, Echarts",
       link: "https://xuongthuchanh.poly.edu.vn/",
    },
    {
@@ -37,8 +39,29 @@ Perform some main functions such as authentication (JWT), notification (Real Tim
          "An online education system with 1-on-1 sessions with teachers, helping students practice their reading skills, and engage in global activities.",
       role: `SetUp source, build user interface, connect APIs from Back-end team, optimize source code and website performance.
 Perform some main functions such as authentication (JWT), connect Socket, call video ZoomSDK, set up API controller (Redux Toolkit), handle interface and logic of other functions of the website.`,
-      technologies: "ReactJS, ReduxToolkit, RTK Query, TailwindCSS, Material Tailwind, MUI, Ag-grid, Echarts",
+      technologies: "ReactJS, Typescript, ReduxToolkit, React Query, TailwindCSS, Material Tailwind, AntDesign, Ag-grid, Echarts",
       link: "https://www.readingtime.vn/",
+   },
+   {
+      thumb: "/writing.png",
+      name: "Wing writing",
+      date: "June 2023 – August 2024",
+      description:
+         "The learning website helps students practice writing skills, enhancing their writing ability in combination with AI ChatGPT 4.0 to improve skills.",
+      role: `SetUp source, build user interface, connect APIs from Back-end team, optimize source code and website performance.
+      Perform some main functions such as authentication (JWT), connect Socket, set up API controller (Redux Toolkit), handle interface and logic of other functions of the website.`,
+      technologies: "ReactJS, Typescript, Redux Toolkit, React Query, TailwindCSS, AntDesign, ThreeJS. Framer Motion",
+      link: "https://dev.writing.englishwing.online/",
+   },
+   {
+      thumb: "/vieclam.png",
+      name: "Fpoly recruitment",
+      date: "June 2023 – August 2024",
+      description: "Recruitment website finds jobs for students and employers",
+      role: `Build user interface, connect APIs from Back-end team, optimize source code and website performance.
+Perform some main functions such as authentication (JWT), set up API controller, handle interface and logic of other functions of the website.`,
+      technologies: "ReactJS, Typescript, Zustand, React Query, TailwindCSS, DaisyUI, AntDesign, Echarts",
+      link: "https://vieclam.io.vn/",
    },
 ];
 function Projects() {
@@ -49,11 +72,11 @@ function Projects() {
             <Slider {...settings}>
                {projects.map((project, index) => (
                   <div key={index} className="">
-                     <div className="rounded-xl bg-[#FD3E8E] w-fit p-2">
-                        <img src={project?.thumb} className="w-40 rounded-xl" alt="" />
+                     <div className="rounded-xl bg-[#49D1FF] w-fit p-2">
+                        <Image src={project?.thumb} width={250} className="rounded-xl" alt="" />
                      </div>
-                     <div className="text-5xl mt-5 text-[#FD3E8E]">{project?.name}</div>
-                     <p className="text-[#FD3E8E] text-xl mb-5">{project?.date}</p>
+                     <div className="text-5xl mt-5 text-[#49D1FF] mb-5">{project?.name}</div>
+                     {/* <p className="text-[#49D1FF] text-xl mb-5">{project?.date}</p> */}
                      <p>
                         <h3 className="">Description</h3>
                         <p className="font-sans font-semibold mb-4">{project?.description}</p>
@@ -64,7 +87,7 @@ function Projects() {
                      </p>
                      <div className="flex gap-4 items-center justify-start">
                         <a href={project?.link} target="_blank">
-                           <button className="p-3 w-[10rem] border-4 border-[#FD3E8E] hover:bg-transparent hover:text-[#FD3E8E] duration-200 rounded-md bg-[#FD3E8E] text-white focus:outline-none">
+                           <button className="p-3 w-[10rem] border-4 border-[#49D1FF] hover:bg-transparent hover:text-[#49D1FF] duration-200 rounded-md bg-[#49D1FF] text-white focus:outline-none">
                               Link
                            </button>
                         </a>

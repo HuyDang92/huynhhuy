@@ -45,6 +45,7 @@ const libraries = [
    "Ant Design",
    "FireBase",
    "Animation GSAP",
+   "Framer Motion",
    "WebRTC",
    "SocketIO",
 ];
