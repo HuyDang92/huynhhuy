@@ -34,8 +34,8 @@ const titles = [
       icon: "mdi:tag-plus",
    },
 ];
-const technical = ["HTML5", "CSS3", "SCSS", "JavaScript", "TypeScript", "PHP", "NoSQL"];
-const frameworks = ["ReactJS", "NextJS", "Angular"];
+const technical = ["HTML5", "CSS3", "SCSS", "JavaScript", "TypeScript"];
+const frameworks = ["ReactJS", "NextJS", "React Native", "VueJS", "Angular"];
 const libraries = [
    "Redux",
    "Redux Toolkit",
@@ -47,11 +47,11 @@ const libraries = [
    "Animation GSAP",
    "Framer Motion",
    "WebRTC",
-   "SocketIO",
+   "SocketIO Client",
 ];
 const projectManagement = ["GitHub", "Trello", "Google Drive"];
 const tools = ["Git", "VS Code", "Figma", "Postman"];
-const others = ["English (Toeic 650)", "Team work ", "Responsive Design", "Restful API"];
+const others = ["English (Toeic 650)", "Team work ", "Responsive Design", "Restful API", "SEO"];
 
 const switchSkills = (id: number) => {
    switch (id) {

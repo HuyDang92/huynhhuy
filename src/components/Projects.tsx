@@ -2,13 +2,17 @@ import Slider from "react-slick";
 import { Image } from "antd";
 
 import "slick-carousel/slick/slick.css";
+import { useRef } from "react";
 // import "slick-carousel/slick/slick-theme.css";
+
 const settings = {
    dots: false,
    infinite: true,
    slidesToShow: 1,
    slidesToScroll: 1,
    autoplay: false,
+   nextArrow: <></>,
+   prevArrow: <></>,
 };
 const projects = [
    {
@@ -65,11 +69,13 @@ Perform some main functions such as authentication (JWT), set up API controller,
    },
 ];
 function Projects() {
+   const slider = useRef<any>(null);
+
    return (
       <div className="projects w-[75rem]  relative z-0 mx-auto mt-40">
          <h1 className="text-6xl mb-20">Projects</h1>
          <div className="slider-container overflow-hidden">
-            <Slider {...settings}>
+            <Slider ref={slider} {...settings}>
                {projects.map((project, index) => (
                   <div key={index} className="">
                      <div className="rounded-xl bg-[#49D1FF] w-fit p-2">
@@ -95,6 +101,20 @@ function Projects() {
                   </div>
                ))}
             </Slider>
+            <div className="flex justify-center gap-5 mt-5">
+               <button
+                  className="p-3 w-[10rem] border-4 border-[#49D1FF] hover:bg-transparent hover:text-[#49D1FF] duration-200 rounded-md bg-[#49D1FF] text-white focus:outline-none"
+                  onClick={() => slider?.current?.slickPrev()}
+               >
+                  Prev
+               </button>
+               <button
+                  className="p-3 w-[10rem] border-4 border-[#49D1FF] hover:bg-transparent hover:text-[#49D1FF] duration-200 rounded-md bg-[#49D1FF] text-white focus:outline-none"
+                  onClick={() => slider?.current?.slickNext()}
+               >
+                  Next
+               </button>
+            </div>
          </div>
       </div>
    );

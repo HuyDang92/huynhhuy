@@ -5,7 +5,7 @@ import { Link } from "react-scroll";
 const list = [
    {
       id: 1,
-      name: "About me",
+      name: "Home",
       icon: "bx:bx-user",
       idDiv: "aboutMe",
    },

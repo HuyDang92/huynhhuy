@@ -81,7 +81,7 @@ function Home() {
                               danghuynhhuy776@gmail.com
                            </button>
                         </a>
-                        <a href="https://drive.google.com/file/d/1zEnZVIsUiLTPiOyv6QypsO3avA-zjlvg/view" target="_blank">
+                        <a href="/CV_Frontend_Developer_DangHuynhHuy.pdf" download={true}>
                            <button className="p-3 w-[20rem] border-4 border-white hover:bg-transparent hover:text-white duration-200 rounded-md bg-white text-[#FF5858] focus:outline-none">
                               RESUME
                            </button>
