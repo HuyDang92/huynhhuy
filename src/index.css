@@ -56,3 +56,34 @@ canvas:active {
    transition: opacity 1.2s ease-in-out;
    position: relative;
 }
+.typing-text {
+   font-size: 30px;
+   display: inline-block;
+}
+
+@media (max-width: 900px) {
+   .typing-text {
+      font-size: 20px;
+   }
+   .aboutMe {
+      max-width: 95%;
+   }
+   .contact {
+      height: 400px;
+      max-width: 95%;
+   }
+}
+
+@media (max-width: 500px) {
+   .typing-text {
+      font-size: 18px;
+   }
+   .aboutMe {
+      height: 800px;
+      max-width: 95%;
+   }
+   .contact {
+      height: 400px;
+      max-width: 95%;
+   }
+}

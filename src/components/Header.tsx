@@ -58,7 +58,7 @@ function Header() {
    }, [theme]);
    return (
       <div className=" w-full flex justify-center">
-         <header className="h-[90px] w-[1400px] fixed top-0 z-50 mx-auto flex justify-between items-center">
+         <header className="h-[90px] w-[95vw] lg:w-[1400px] fixed top-0 z-50 mx-auto flex justify-between items-center">
             <h1 style={{ textShadow: "0px 0px 2px #000" }} className=" text-3xl">
                D.H.HUY
             </h1>
