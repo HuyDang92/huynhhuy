@@ -57,9 +57,9 @@ function Header() {
       document.querySelector("html")?.setAttribute("data-theme", theme);
    }, [theme]);
    return (
-      <div className=" w-full flex justify-center">
-         <header className="h-[90px] w-[95vw] lg:w-[1400px] fixed top-0 z-50 mx-auto flex justify-between items-center">
-            <h1 style={{ textShadow: "0px 0px 2px #000" }} className=" text-3xl">
+      <div className="w-full flex justify-center">
+         <header className="h-[90px] w-[95vw] lg:max-w-[1400px] fixed top-0 left-0 right-0 z-50 mx-auto flex justify-between items-center">
+            <h1 style={{ textShadow: "0px 0px 2px #000" }} className="text-3xl">
                D.H.HUY
             </h1>
             <label className="swap swap-rotate bg-white/30 p-1 rounded-lg">
@@ -88,17 +88,17 @@ function Header() {
                <div className="drawer-side z-20">
                   <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
                   <ul className="menu text-xl bg-base-200 text-base-content min-h-full w-80 p-4">
-                     {list.map((item, index) => (
-                        <Link activeClass="active" to={item?.idDiv} spy={true} smooth={true} offset={-120} duration={500}>
-                           <li
-                              key={index}
-                              onClick={() => {
-                                 setOpen(false);
-                              }}
-                           >
-                              <a>{item?.name}</a>
-                           </li>
-                        </Link>
+                     {list.map((item) => (
+                        <li
+                           key={item.id}
+                           onClick={() => {
+                              setOpen(false);
+                           }}
+                        >
+                           <Link activeClass="active" to={item?.idDiv} spy={true} smooth={true} offset={-120} duration={500}>
+                              {item?.name}
+                           </Link>
+                        </li>
                      ))}
                   </ul>
                </div>
