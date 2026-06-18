@@ -30,8 +30,8 @@ function Skills() {
                   key={cat.id}
                   onClick={() => setActiveIdx(idx)}
                   className={`${
-                     activeIdx === idx ? "py-7 text-[#FF7777]" : "text-white"
-                  } duration-300 px-6 py-4 text-xl rounded-xl bg-[#2D2E33] flex justify-between items-center cursor-pointer`}
+                     activeIdx === idx ? "py-7 text-[#FF7777] border-l-4 border-[#FF7777]" : "text-white hover:text-[#49D1FF] hover:translate-x-1.5"
+                  } duration-300 px-6 py-4 text-xl rounded-xl bg-[#2D2E33] flex justify-between items-center cursor-pointer transition-all`}
                >
                   <span className="md:block hidden">{cat.label}</span>
                   <Icon icon={ICON_MAP[cat.id] ?? DEFAULT_ICON} />
@@ -47,7 +47,7 @@ function Skills() {
                      animate={{ scale: 1 }}
                      transition={{ delay: 0, duration: 0.3, type: "spring", stiffness: 250, damping: 20 }}
                      key={index}
-                     className="flex items-center gap-2 rounded-lg p-2 py-1 border-2 border-white md:text-xl text-sm"
+                     className="flex items-center gap-2 rounded-lg p-2 py-1 border-2 border-white md:text-xl text-sm transition-all duration-200 hover:bg-white hover:text-[#25262A] hover:scale-105 hover:shadow-[0_0_15px_rgba(255,255,255,0.6)] cursor-default"
                   >
                      {skill.logoUrl && (
                         <img

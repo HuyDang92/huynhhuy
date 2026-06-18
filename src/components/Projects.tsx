@@ -52,7 +52,7 @@ function Projects() {
                   <div key={index} className="px-4">
                      <div className="flex flex-col gap-6">
                         {/* Image */}
-                        <div className="rounded-xl bg-[#49D1FF] w-fit p-2 shrink-0">
+                        <div className="rounded-xl bg-[#49D1FF] w-fit p-2 shrink-0 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(73,209,255,0.6)]">
                            <Image src={project?.thumb} width={320} className="rounded-xl" alt="" />
                         </div>
                         

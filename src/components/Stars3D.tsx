@@ -37,7 +37,7 @@ export default function Stars3D() {
    return (
       <Canvas
          camera={{ position: [0, 0, 5], fov: 60 }}
-         style={{ position: "absolute", inset: 0, pointerEvents: "none" }}
+         style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: -1 }}
          dpr={[1, 1.5]}
       >
          <StarField />

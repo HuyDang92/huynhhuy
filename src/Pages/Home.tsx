@@ -117,6 +117,10 @@ function Home() {
    return (
       <>
          <CustomCursor />
+         <Stars3D />
+         <div className="nebula-glow nebula-purple" />
+         <div className="nebula-glow nebula-cyan" />
+         <div className="nebula-glow nebula-pink" />
          <Header />
          <div ref={containerRef}>
             <div className="mt-[90px]" id="smooth-content">

@@ -7,6 +7,14 @@
 
 body {
    font-family: "Bungee", sans-serif;
+   background: radial-gradient(circle at 50% 50%, #e0f2fe 0%, #f8fafc 100%) !important;
+   color: #0f172a;
+   transition: background 0.3s ease, color 0.3s ease;
+}
+
+html[data-theme="dark"] body {
+   background: radial-gradient(circle at 50% 50%, #0c0835 0%, #050414 100%) !important;
+   color: #ffffff;
 }
 
 canvas {
@@ -96,4 +104,69 @@ canvas:active {
       height: 400px;
       max-width: 95%;
    }
+}
+
+/* Floating Nebula Background Effects */
+.nebula-glow {
+   position: fixed;
+   width: 500px;
+   height: 500px;
+   border-radius: 50%;
+   filter: blur(140px);
+   opacity: 0.3;
+   pointer-events: none;
+   z-index: -2;
+}
+
+.nebula-purple {
+   background: radial-gradient(circle, rgba(168, 85, 247, 0.5) 0%, rgba(0, 0, 0, 0) 70%);
+   top: 10%;
+   left: -10%;
+   animation: float-slow 28s infinite alternate ease-in-out;
+}
+
+.nebula-cyan {
+   background: radial-gradient(circle, rgba(6, 182, 212, 0.45) 0%, rgba(0, 0, 0, 0) 70%);
+   bottom: 10%;
+   right: -10%;
+   animation: float-medium 22s infinite alternate-reverse ease-in-out;
+}
+
+.nebula-pink {
+   background: radial-gradient(circle, rgba(236, 72, 153, 0.35) 0%, rgba(0, 0, 0, 0) 70%);
+   top: 50%;
+   left: 40%;
+   animation: float-fast 18s infinite alternate ease-in-out;
+}
+
+@keyframes float-slow {
+   0% { transform: translate(0, 0) scale(1); }
+   50% { transform: translate(150px, 100px) scale(1.15); }
+   100% { transform: translate(-50px, 200px) scale(0.9); }
+}
+
+@keyframes float-medium {
+   0% { transform: translate(0, 0) scale(1.1); }
+   50% { transform: translate(-200px, -150px) scale(0.85); }
+   100% { transform: translate(100px, 50px) scale(1.2); }
+}
+
+@keyframes float-fast {
+   0% { transform: translate(0, 0) scale(0.95); }
+   50% { transform: translate(100px, -100px) scale(1.2); }
+   100% { transform: translate(-100px, 150px) scale(1); }
+}
+
+/* Light mode overrides for background nebulas */
+html[data-theme="light"] .nebula-purple,
+html:not([data-theme="dark"]) .nebula-purple {
+   background: radial-gradient(circle, rgba(168, 85, 247, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+}
+html[data-theme="light"] .nebula-cyan,
+html:not([data-theme="dark"]) .nebula-cyan {
+   background: radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+}
+html[data-theme="light"] .nebula-pink,
+html:not([data-theme="dark"]) .nebula-pink {
+   background: radial-gradient(circle, rgba(236, 72, 153, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
 }
