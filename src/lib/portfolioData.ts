@@ -151,7 +151,12 @@ export const setAbout = (data: AboutData) => setDoc_("about", data);
 export const getSkills = async (): Promise<SkillsData> => {
    try {
       const snap = await getDoc(doc(db, "portfolio", "skills"));
-      return normalizeSkills(snap.exists() ? snap.data() : null);
+      const normalized = normalizeSkills(snap.exists() ? snap.data() : null);
+      return normalized.sort((a, b) => {
+         if (a.id === "technical" || a.label.toLowerCase() === "technical") return -1;
+         if (b.id === "technical" || b.label.toLowerCase() === "technical") return 1;
+         return 0;
+      });
    } catch {
       return DEFAULT_SKILLS;
    }

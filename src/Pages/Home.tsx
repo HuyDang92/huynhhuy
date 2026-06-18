@@ -11,6 +11,7 @@ import Projects from "../components/Projects";
 import Stars3D from "../components/Stars3D";
 import Earth from "../components/Earth";
 import { usePortfolio } from "../context/PortfolioContext";
+import CustomCursor from "../components/CustomCursor";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -114,6 +115,7 @@ function Home() {
 
    return (
       <>
+         <CustomCursor />
          <Header />
          <div ref={containerRef}>
             <div className="mt-[90px]" id="smooth-content">
