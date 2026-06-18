@@ -141,7 +141,7 @@ function Home() {
 
                {/* About */}
                <div className="aboutMe" id="aboutMe">
-                  <div className="absolute h-[470px] md:overflow-hidden flex md:flex-row flex-col w-full z-0 text-white">
+                  <div className="relative md:absolute md:h-[470px] md:overflow-hidden flex md:flex-row flex-col w-full z-0 text-white">
                      <div className="about-text md:w-[60%] md:p-16 p-5">
                         <h1 className="lg:text-6xl md:text-5xl text-2xl mb-5">About me</h1>
                         <p className="h-[270px] overflow-y-auto font-sans font-semibold md:text-lg">{about.bio}</p>
@@ -150,7 +150,7 @@ function Home() {
                            <span className="">SCROLL</span>
                         </div>
                      </div>
-                     <div className="about-img md:flex-1 w-full h-[300px] md:h-full mx-auto">
+                     <div className="about-img md:flex-1 w-full h-[340px] md:h-[380px] md:max-w-[420px] md:self-center mt-2 mb-8 md:my-0 mx-auto">
                         <MeModal />
                      </div>
                   </div>
@@ -158,8 +158,8 @@ function Home() {
 
                {/* Story */}
                <div className="story my-20 w-[95vw] lg:w-300 relative mx-auto gsap-reveal">
-                  <h1 className="text-6xl text-center">Story</h1>
-                  <p className="text-center">Interact with the map below to uncover my story</p>
+                  <h1 className="text-4xl md:text-6xl text-center">Story</h1>
+                  <p className="text-center px-4">Interact with the map below to uncover my story</p>
                   <div className="w-full flex flex-col md:flex-row items-center gap-6 mt-14">
                      <div className="md:w-1/2 w-full h-[350px] md:h-[500px]">
                         <Earth />
@@ -204,14 +204,14 @@ function Home() {
                         If you are looking for someone to fill an open Front-end position or would simply like to consult me on full-stack engineering
                         decisions, please do not hesitate to contact me.
                      </p>
-                     <div className="flex flex-col md:flex-row gap-4 items-center justify-center">
-                        <a href={`mailto:${settings.contactEmail}`} target="_blank">
-                           <button className="hover:bg-white duration-200 hover:text-[#ff4d4d] p-3 w-[20rem] border-4 border-white rounded-md bg-transparent focus:outline-none font-medium">
+                     <div className="flex flex-col md:flex-row gap-4 items-center justify-center w-full">
+                        <a href={`mailto:${settings.contactEmail}`} target="_blank" className="w-full sm:w-auto">
+                           <button className="hover:bg-white duration-200 hover:text-[#ff4d4d] p-3 w-full sm:w-[20rem] border-4 border-white rounded-md bg-transparent focus:outline-none font-medium text-sm sm:text-base break-all">
                               {settings.contactEmail}
                            </button>
                         </a>
-                        <a href={settings.resumeLink} target="_blank">
-                           <button className="p-3 w-[20rem] border-4 border-white hover:bg-transparent hover:text-white duration-200 rounded-md bg-white text-[#ff4d4d] focus:outline-none">
+                        <a href={settings.resumeLink} target="_blank" className="w-full sm:w-auto">
+                           <button className="p-3 w-full sm:w-[20rem] border-4 border-white hover:bg-transparent hover:text-white duration-200 rounded-md bg-white text-[#ff4d4d] focus:outline-none">
                               RESUME
                            </button>
                         </a>

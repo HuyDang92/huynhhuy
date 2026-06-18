@@ -100,7 +100,7 @@ function Header() {
                         exit={{ opacity: 0, scale: 0.9, y: 20 }}
                         transition={{ type: "spring", stiffness: 280, damping: 26 }}
                         onClick={(e) => e.stopPropagation()}
-                        className="relative w-full max-w-md rounded-3xl border border-white/20 bg-white/10 dark:bg-white/5 backdrop-blur-2xl shadow-[0_8px_40px_rgba(0,0,0,0.35)] p-8"
+                        className="relative w-full max-w-md rounded-3xl border border-white/20 bg-white/10 dark:bg-white/5 backdrop-blur-2xl shadow-[0_8px_40px_rgba(0,0,0,0.35)] p-6 sm:p-8"
                      >
                         {/* glass glow accents */}
                         <div className="absolute -top-16 -left-16 w-40 h-40 bg-[#49D1FF]/30 rounded-full blur-3xl pointer-events-none" />

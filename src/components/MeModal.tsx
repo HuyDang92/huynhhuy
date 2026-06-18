@@ -6,7 +6,7 @@ function Model() {
   const { scene } = useGLTF('/3Dmodal/me.glb');
   return (
     <Center>
-      <primitive object={scene} scale={2.5} />
+      <primitive object={scene} scale={2} />
     </Center>
   );
 }
@@ -14,14 +14,16 @@ function Model() {
 export default function MeModal() {
   return (
     <div className="w-full h-full cursor-grab active:cursor-grabbing">
-      <Canvas camera={{ position: [0, 0, 6], fov: 45 }}>
+      <Canvas camera={{ position: [0, 0, 9], fov: 45 }}>
         <Suspense fallback={null}>
           <ambientLight intensity={0.9} />
           <directionalLight position={[10, 10, 5]} intensity={1.5} />
           <directionalLight position={[-10, 10, -5]} intensity={0.5} />
           <Model />
           <OrbitControls
-            enableZoom={false}
+            enableZoom={true}
+            minDistance={5}
+            maxDistance={14}
             enablePan={false}
             autoRotate
             autoRotateSpeed={1}

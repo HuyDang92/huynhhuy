@@ -89,6 +89,7 @@ html[data-theme="dark"] .contact {
       font-size: 20px;
    }
    .aboutMe {
+      height: auto;
       max-width: 95%;
    }
    .contact {
@@ -102,7 +103,7 @@ html[data-theme="dark"] .contact {
       font-size: 18px;
    }
    .aboutMe {
-      height: 800px;
+      height: auto;
       max-width: 95%;
    }
    .contact {

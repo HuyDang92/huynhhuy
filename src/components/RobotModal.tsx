@@ -43,10 +43,12 @@ export default function RobotModal() {
             fade 
             speed={1.5} 
           />
-          <OrbitControls 
-            enableZoom={false} 
+          <OrbitControls
+            enableZoom={true}
+            minDistance={6}
+            maxDistance={16}
             enablePan={false}
-            autoRotate 
+            autoRotate
             autoRotateSpeed={0.5}
             maxPolarAngle={Math.PI / 2 + 0.1}
             minPolarAngle={Math.PI / 2 - 0.5}
