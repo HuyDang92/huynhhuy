@@ -12,6 +12,7 @@ import Stars3D from "../components/Stars3D";
 import Earth from "../components/Earth";
 import { usePortfolio } from "../context/PortfolioContext";
 import CustomCursor from "../components/CustomCursor";
+import RobotModal from "../components/RobotModal";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -120,12 +121,11 @@ function Home() {
          <div ref={containerRef}>
             <div className="mt-[90px]" id="smooth-content">
                {/* Banner */}
-               <div className="banner-section w-[95vw] lg:max-w-[1400px] relative z-0 mx-auto h-[300px] md:h-[400px] lg:h-[600px] mb-20 overflow-hidden rounded-3xl">
-                  <img src="/banner.webp" alt="" className="banner-img rounded-3xl h-full w-full object-cover" />
-                  <Stars3D />
-                  <div className="absolute top-10 w-full z-10 text-center left-1/2 -translate-x-1/2 text-white">
-                     <h1 className="banner-title lg:text-7xl text-2xl md:text-5xl">Hi, I'm {about.name}</h1>
-                     <div className="banner-subtitle">
+               <div className="banner-section w-[95vw] lg:max-w-[1400px] relative z-0 mx-auto h-[300px] md:h-[400px] lg:h-[600px] mb-20 overflow-hidden rounded-3xl bg-gradient-to-tr from-[#03020c] via-[#0c0835] to-[#04020e]">
+                  <RobotModal />
+                  <div className="absolute top-10 w-full z-10 text-center left-1/2 -translate-x-1/2 text-white pointer-events-none">
+                     <h1 className="banner-title lg:text-7xl text-2xl md:text-5xl drop-shadow-lg">Hi, I'm {about.name}</h1>
+                     <div className="banner-subtitle drop-shadow-md font-bold">
                         <TypingTextEffect text={`I'm a front-end developer`} />
                      </div>
                   </div>
