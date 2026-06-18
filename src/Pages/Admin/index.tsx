@@ -45,26 +45,26 @@ function AdminShell() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#1D232A] flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center space-y-3">
           <div className="w-8 h-8 border-2 border-[#FF5858] border-t-transparent rounded-full animate-spin mx-auto" />
-          <p className="text-[#9ca3af] text-sm">Loading data…</p>
+          <p className="text-gray-600 text-sm">Loading data…</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="h-screen bg-[#1D232A] flex overflow-hidden">
+    <div className="h-screen bg-gray-50 flex overflow-hidden" style={{ fontFamily: "'Montserrat', sans-serif" }}>
       {sidebarOpen && (
         <div className="fixed inset-0 bg-black/50 z-20 lg:hidden" onClick={() => setSidebarOpen(false)} />
       )}
 
       {/* Sidebar */}
-      <aside className={`fixed lg:relative inset-y-0 left-0 z-30 w-60 h-full bg-[#25262A] border-r border-white/5 flex flex-col flex-shrink-0 transform transition-transform duration-200 ${sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}`}>
-        <div className="px-6 py-5 border-b border-white/5">
-          <span className="text-2xl font-bold text-white tracking-tight">cap<span className="text-[#FF5858]">y</span></span>
-          <p className="text-[#4b5563] text-xs mt-0.5">Admin Panel</p>
+      <aside className={`fixed lg:relative inset-y-0 left-0 z-30 w-60 h-full bg-white border-r border-gray-200 flex flex-col flex-shrink-0 transform transition-transform duration-200 ${sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}`}>
+        <div className="px-6 py-5 border-b border-gray-200">
+          <span className="text-2xl font-bold text-gray-900 tracking-tight">cap<span className="text-[#FF5858]">y</span></span>
+          <p className="text-gray-500 text-xs mt-0.5">Admin Panel</p>
         </div>
 
         <nav className="flex-1 px-3 py-4 space-y-1">
@@ -72,7 +72,7 @@ function AdminShell() {
             <button
               key={tab.id}
               onClick={() => { setActiveTab(tab.id); setSidebarOpen(false); }}
-              className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors ${activeTab === tab.id ? "bg-[#FF5858]/15 text-[#FF5858]" : "text-[#9ca3af] hover:text-white hover:bg-white/5"}`}
+              className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors ${activeTab === tab.id ? "bg-[#FF5858]/15 text-[#FF5858]" : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"}`}
             >
               <span>{tab.icon}</span>
               {tab.label}
@@ -80,12 +80,12 @@ function AdminShell() {
           ))}
         </nav>
 
-        <div className="px-4 py-4 border-t border-white/5 space-y-3">
+        <div className="px-4 py-4 border-t border-gray-200 space-y-3">
           <div className="flex items-center gap-2 px-2">
             <div className={`w-2 h-2 rounded-full ${timeLeft > 5 * 60000 ? "bg-green-500" : "bg-yellow-500"} animate-pulse`} />
-            <span className="text-[#9ca3af] text-xs">{formatTime(timeLeft)} remaining</span>
+            <span className="text-gray-600 text-xs">{formatTime(timeLeft)} remaining</span>
           </div>
-          <button onClick={handleLogout} className="w-full flex items-center gap-2 px-3 py-2 text-[#9ca3af] hover:text-[#FF5858] text-sm transition-colors rounded-xl hover:bg-[#FF5858]/5">
+          <button onClick={handleLogout} className="w-full flex items-center gap-2 px-3 py-2 text-gray-600 hover:text-[#FF5858] text-sm transition-colors rounded-xl hover:bg-[#FF5858]/5">
             <span>→</span> Log out
           </button>
         </div>
@@ -93,11 +93,11 @@ function AdminShell() {
 
       {/* Main */}
       <div className="flex-1 flex flex-col min-w-0 overflow-hidden lg:ml-0 ml-0">
-        <header className="h-14 flex-shrink-0 bg-[#25262A] border-b border-white/5 flex items-center px-4 gap-4">
-          <button className="lg:hidden text-[#9ca3af] hover:text-white" onClick={() => setSidebarOpen(true)}>☰</button>
-          <h1 className="text-white font-medium text-sm capitalize">{activeTab}</h1>
+        <header className="h-14 flex-shrink-0 bg-white border-b border-gray-200 flex items-center px-4 gap-4">
+          <button className="lg:hidden text-gray-600 hover:text-gray-900" onClick={() => setSidebarOpen(true)}>☰</button>
+          <h1 className="text-gray-900 font-medium text-sm capitalize">{activeTab}</h1>
           <div className="ml-auto">
-            <a href="/" target="_blank" className="text-[#9ca3af] hover:text-white text-xs transition-colors">↗ View portfolio</a>
+            <a href="/" target="_blank" className="text-gray-600 hover:text-gray-900 text-xs transition-colors">↗ View portfolio</a>
           </div>
         </header>
         <main className="flex-1 p-6 overflow-y-auto">

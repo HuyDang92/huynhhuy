@@ -17,7 +17,7 @@ export default function SaveButton({ tabKey, onClick }: Props) {
         onClick={onClick}
         disabled={saving}
         className={`
-          disabled:opacity-50 text-white rounded-xl px-6 py-3 text-sm font-medium transition-colors
+          disabled:opacity-50 text-white rounded-xl px-6 py-3 text-sm font-bold transition-colors
           ${isError
             ? "bg-red-600 hover:bg-red-700"
             : "bg-[#FF5858] hover:bg-[#ff4040]"

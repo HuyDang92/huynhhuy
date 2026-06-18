@@ -1,8 +1,8 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import {
-  AboutData, SkillsData, ExperienceItem, ProjectItem,
-  DEFAULT_ABOUT, DEFAULT_SKILLS, DEFAULT_EXPERIENCE, DEFAULT_PROJECTS,
-  getAbout, getSkills, getExperience, getProjects,
+  AboutData, SkillsData, ExperienceItem, ProjectItem, SettingsData,
+  DEFAULT_ABOUT, DEFAULT_SKILLS, DEFAULT_EXPERIENCE, DEFAULT_PROJECTS, DEFAULT_SETTINGS,
+  getAbout, getSkills, getExperience, getProjects, getSettings,
 } from "../lib/portfolioData";
 
 interface PortfolioState {
@@ -10,6 +10,7 @@ interface PortfolioState {
   skills: SkillsData;
   experience: ExperienceItem[];
   projects: ProjectItem[];
+  settings: SettingsData;
   loading: boolean;
 }
 
@@ -18,6 +19,7 @@ const defaultState: PortfolioState = {
   skills: DEFAULT_SKILLS,
   experience: DEFAULT_EXPERIENCE,
   projects: DEFAULT_PROJECTS,
+  settings: DEFAULT_SETTINGS,
   loading: true,
 };
 
@@ -29,11 +31,11 @@ export function PortfolioProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     let cancelled = false;
 
-    Promise.all([getAbout(), getSkills(), getExperience(), getProjects()])
-      .then(([about, skills, experience, projects]) => {
+    Promise.all([getAbout(), getSkills(), getExperience(), getProjects(), getSettings()])
+      .then(([about, skills, experience, projects, settings]) => {
         if (!cancelled) {
           // Single setState = single re-render, no flickering
-          setState({ about, skills, experience, projects, loading: false });
+          setState({ about, skills, experience, projects, settings, loading: false });
         }
       })
       .catch(() => {

@@ -41,20 +41,20 @@ function SortableTag({
     <span
       ref={setNodeRef}
       style={{ transform: CSS.Transform.toString(transform), transition, opacity: isDragging ? 0.3 : 1 }}
-      className="flex items-center gap-1.5 bg-[#25262A] border border-white/10 text-white rounded-lg px-3 py-1 text-sm select-none"
+      className="flex items-center gap-1.5 bg-white border border-gray-300 text-gray-900 rounded-lg px-3 py-1 text-sm select-none"
     >
-      <span {...listeners} {...attributes} className="cursor-grab active:cursor-grabbing text-[#4b5563] hover:text-[#9ca3af] text-xs mr-0.5" title="Drag">⠿</span>
+      <span {...listeners} {...attributes} className="cursor-grab active:cursor-grabbing text-gray-500 hover:text-gray-600 text-xs mr-0.5" title="Drag">⠿</span>
       {skill.logoUrl && <img src={skill.logoUrl} alt="" className="w-4 h-4 object-contain rounded-sm" onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }} />}
       {skill.name}
-      <button onClick={onEditLogo} className="text-[#9ca3af] hover:text-[#FF5858] ml-0.5 text-xs transition-colors">{skill.logoUrl ? "🖼" : "＋"}</button>
-      <button onClick={onRemove} className="text-[#9ca3af] hover:text-[#FF5858] text-xs transition-colors">✕</button>
+      <button onClick={onEditLogo} className="text-gray-600 hover:text-[#FF5858] ml-0.5 text-xs transition-colors">{skill.logoUrl ? "🖼" : "＋"}</button>
+      <button onClick={onRemove} className="text-gray-600 hover:text-[#FF5858] text-xs transition-colors">✕</button>
     </span>
   );
 }
 
 function DragTag({ skill }: { skill: SkillWithId }) {
   return (
-    <span className="flex items-center gap-1.5 bg-[#FF5858]/20 border border-[#FF5858]/40 text-white rounded-lg px-3 py-1 text-sm shadow-xl cursor-grabbing">
+    <span className="flex items-center gap-1.5 bg-[#FF5858]/20 border border-[#FF5858]/40 text-gray-900 rounded-lg px-3 py-1 text-sm shadow-xl cursor-grabbing">
       {skill.logoUrl && <img src={skill.logoUrl} alt="" className="w-4 h-4 object-contain rounded-sm" />}
       {skill.name}
     </span>
@@ -88,7 +88,7 @@ function CategoryCard({
   };
 
   return (
-    <div className={`bg-[#1D232A] border rounded-2xl p-4 space-y-3 transition-colors ${isOver ? "border-[#FF5858]/50 bg-[#FF5858]/5" : "border-white/10"}`}>
+    <div className={`bg-gray-50 border rounded-2xl p-4 space-y-3 transition-colors ${isOver ? "border-[#FF5858]/50 bg-[#FF5858]/5" : "border-gray-300"}`}>
       {/* Category header */}
       <div className="flex items-center gap-2">
         {cat.editing ? (
@@ -98,13 +98,13 @@ function CategoryCard({
             onChange={(e) => onLabelChange(e.target.value)}
             onBlur={onLabelCommit}
             onKeyDown={(e) => { if (e.key === "Enter" || e.key === "Escape") onLabelCommit(); }}
-            className="flex-1 bg-[#25262A] border border-[#FF5858]/50 rounded-lg px-3 py-1 text-[#FF5858] text-sm font-medium focus:outline-none"
+            className="flex-1 bg-white border border-[#FF5858]/50 rounded-lg px-3 py-1 text-[#FF5858] text-sm font-medium focus:outline-none"
           />
         ) : (
           <p className="flex-1 text-[#FF5858] text-sm font-medium truncate">{cat.label}</p>
         )}
-        <button onClick={onToggleEdit} title="Rename" className="text-[#4b5563] hover:text-white text-xs transition-colors px-1">✏️</button>
-        <button onClick={onDelete} title="Delete category" className="text-[#4b5563] hover:text-[#FF5858] text-xs transition-colors px-1">🗑</button>
+        <button onClick={onToggleEdit} title="Rename" className="text-gray-500 hover:text-gray-900 text-xs transition-colors px-1">✏️</button>
+        <button onClick={onDelete} title="Delete category" className="text-gray-500 hover:text-[#FF5858] text-xs transition-colors px-1">🗑</button>
       </div>
 
       {/* Skills drop zone */}
@@ -119,16 +119,16 @@ function CategoryCard({
                   onEditLogo={() => onEditLogo(i)}
                 />
                 {logoEdit?.idx === i && (
-                  <div className="absolute top-full left-0 mt-1 z-20 bg-[#25262A] border border-white/10 rounded-xl p-3 w-64 shadow-xl space-y-2">
-                    <p className="text-[#9ca3af] text-xs font-medium">Logo URL — "{skill.name}"</p>
+                  <div className="absolute top-full left-0 mt-1 z-20 bg-white border border-gray-300 rounded-xl p-3 w-64 shadow-xl space-y-2">
+                    <p className="text-gray-600 text-xs font-medium">Logo URL — "{skill.name}"</p>
                     <input
                       autoFocus type="text" value={logoEdit.val}
                       onChange={(e) => onCommitLogo(e.target.value)}
                       onKeyDown={(e) => { if (e.key === "Enter" || e.key === "Escape") onCancelLogo(); }}
                       placeholder="https://..."
-                      className="w-full bg-[#1D232A] border border-white/10 rounded-lg px-3 py-1.5 text-white text-xs focus:outline-none focus:border-[#FF5858]/60"
+                      className="w-full bg-gray-50 border border-gray-300 rounded-lg px-3 py-1.5 text-gray-900 text-xs focus:outline-none focus:border-[#FF5858]/60"
                     />
-                    <button onClick={onCancelLogo} className="w-full bg-[#FF5858] hover:bg-[#ff4040] text-white rounded-lg py-1 text-xs transition-colors">Done</button>
+                    <button onClick={onCancelLogo} className="w-full bg-[#FF5858] hover:bg-[#ff4040] text-white font-bold rounded-lg py-1 text-xs transition-colors">Done</button>
                   </div>
                 )}
               </div>
@@ -142,12 +142,12 @@ function CategoryCard({
         <div className="flex gap-2">
           <input type="text" value={name} onChange={(e) => setName(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleAdd()} placeholder="Skill name"
-            className="flex-1 bg-[#25262A] border border-white/10 rounded-xl px-4 py-2 text-white text-sm placeholder-[#4b5563] focus:outline-none focus:border-[#FF5858]/60 transition-colors"
+            className="flex-1 bg-white border border-gray-300 rounded-xl px-4 py-2 text-gray-900 text-sm placeholder-[#4b5563] focus:outline-none focus:border-[#FF5858]/60 transition-colors"
           />
-          <button onClick={handleAdd} className="bg-[#FF5858] hover:bg-[#ff4040] text-white rounded-xl px-4 py-2 text-sm transition-colors">Add</button>
+          <button onClick={handleAdd} className="bg-[#FF5858] hover:bg-[#ff4040] text-white font-bold rounded-xl px-4 py-2 text-sm transition-colors">Add</button>
         </div>
         <input type="text" value={logoUrl} onChange={(e) => setLogoUrl(e.target.value)} placeholder="Logo URL (optional)"
-          className="w-full bg-[#25262A] border border-white/10 rounded-xl px-4 py-2 text-white text-sm placeholder-[#4b5563] focus:outline-none focus:border-[#FF5858]/60 transition-colors"
+          className="w-full bg-white border border-gray-300 rounded-xl px-4 py-2 text-gray-900 text-sm placeholder-[#4b5563] focus:outline-none focus:border-[#FF5858]/60 transition-colors"
         />
       </div>
     </div>
@@ -251,10 +251,10 @@ export default function SkillsTab() {
   return (
     <div className="w-full space-y-6">
       <div className="flex items-center justify-between">
-        <h2 className="text-white text-xl font-semibold">Skills</h2>
+        <h2 className="text-gray-900 text-xl font-semibold">Skills</h2>
         <div className="flex items-center gap-3">
-          <p className="text-[#4b5563] text-xs hidden xl:block">Drag ⠿ to move skills between categories</p>
-          <button onClick={addCategory} className="border border-[#FF5858]/40 hover:bg-[#FF5858]/10 text-[#FF5858] rounded-xl px-4 py-2 text-sm transition-colors">
+          <p className="text-gray-500 text-xs hidden xl:block">Drag ⠿ to move skills between categories</p>
+          <button onClick={addCategory} className="border border-[#FF5858]/40 hover:bg-[#FF5858]/10 text-[#FF5858] rounded-xl px-4 py-2 text-sm font-bold transition-colors">
             + Add Category
           </button>
         </div>

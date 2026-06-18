@@ -16,7 +16,7 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 function Home() {
    const containerRef = useRef<HTMLDivElement>(null);
-   const { about } = usePortfolio();
+   const { about, settings } = usePortfolio();
 
    useGSAP(
       () => {
@@ -188,12 +188,12 @@ function Home() {
                         decisions, please do not hesitate to contact me.
                      </p>
                      <div className="flex flex-col md:flex-row gap-4 items-center justify-center">
-                        <a href={`mailto:${about.email}`} target="_blank">
+                        <a href={`mailto:${settings.contactEmail}`} target="_blank">
                            <button className="hover:bg-white duration-200 hover:text-[#FF5858] p-3 w-[20rem] border-4 border-white rounded-md bg-transparent focus:outline-none font-medium">
-                              {about.email}
+                              {settings.contactEmail}
                            </button>
                         </a>
-                        <a href={about.resumeLink} target="_blank">
+                        <a href={settings.resumeLink} target="_blank">
                            <button className="p-3 w-[20rem] border-4 border-white hover:bg-transparent hover:text-white duration-200 rounded-md bg-white text-[#FF5858] focus:outline-none">
                               RESUME
                            </button>

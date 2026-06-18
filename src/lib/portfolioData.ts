@@ -27,6 +27,7 @@ export type SkillsData = SkillCategory[];
 export interface ExperienceItem {
    id: string;
    company: string;
+   logoUrl?: string;
    role: string;
    startDate: string;
    endDate: string;
@@ -54,6 +55,7 @@ export interface SettingsData {
    resumeLink: string;
    githubUrl: string;
    linkedinUrl: string;
+   instagramUrl: string;
 }
 
 export const DEFAULT_ABOUT: AboutData = {
@@ -68,10 +70,10 @@ export const DEFAULT_ABOUT: AboutData = {
 
 export const DEFAULT_SKILLS: SkillsData = [
    { id: "technical", label: "Technical", items: [] },
-   { id: "frameworks", label: "Frameworks", items: [] },
-   { id: "libraries", label: "Libraries", items: [] },
-   { id: "tools", label: "Tools", items: [] },
    { id: "projectManagement", label: "Project Management", items: [] },
+   { id: "libraries", label: "Libraries", items: [] },
+   { id: "frameworks", label: "Frameworks", items: [] },
+   { id: "tools", label: "Tools", items: [] },
    { id: "others", label: "Others", items: [] },
 ];
 
@@ -93,6 +95,7 @@ export const DEFAULT_SETTINGS: SettingsData = {
    resumeLink: "",
    githubUrl: "",
    linkedinUrl: "",
+   instagramUrl: "",
 };
 
 function normalizeSkillItem(raw: unknown): SkillItem {

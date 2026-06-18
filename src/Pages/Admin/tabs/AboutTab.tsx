@@ -10,20 +10,20 @@ export default function AboutTab() {
 
   const field = (key: keyof AboutData, label: string, multiline?: boolean, rows = 4) => (
     <div key={key}>
-      <label className="text-[#9ca3af] text-sm mb-1.5 block">{label}</label>
+      <label className="text-gray-600 text-sm mb-1.5 block">{label}</label>
       {multiline ? (
         <textarea
           rows={rows}
           value={about[key]}
           onChange={(e) => set(key, e.target.value)}
-          className="w-full bg-[#1D232A] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#FF5858]/60 transition-colors resize-y"
+          className="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-3 text-gray-900 text-sm focus:outline-none focus:border-[#FF5858]/60 transition-colors resize-y"
         />
       ) : (
         <input
           type="text"
           value={about[key]}
           onChange={(e) => set(key, e.target.value)}
-          className="w-full bg-[#1D232A] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#FF5858]/60 transition-colors"
+          className="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-3 text-gray-900 text-sm focus:outline-none focus:border-[#FF5858]/60 transition-colors"
         />
       )}
     </div>
@@ -31,7 +31,7 @@ export default function AboutTab() {
 
   return (
     <div className="w-full space-y-5">
-      <h2 className="text-white text-xl font-semibold">About</h2>
+      <h2 className="text-gray-900 text-xl font-semibold">About</h2>
 
       {/* Row 1: name + email */}
       <div className="grid grid-cols-2 gap-5">
