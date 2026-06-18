@@ -13,6 +13,9 @@ import Earth from "../components/Earth";
 import { usePortfolio } from "../context/PortfolioContext";
 import CustomCursor from "../components/CustomCursor";
 import RobotModal from "../components/RobotModal";
+import MeModal from "../components/MeModal";
+import { Preloader } from "../components/Loading";
+import Experience from "../components/Experience";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -116,6 +119,7 @@ function Home() {
 
    return (
       <>
+         <Preloader />
          <CustomCursor />
          <Stars3D />
          <div className="nebula-glow nebula-purple" />
@@ -125,7 +129,7 @@ function Home() {
          <div ref={containerRef}>
             <div className="mt-[90px]" id="smooth-content">
                {/* Banner */}
-               <div className="banner-section w-[95vw] lg:max-w-[1400px] relative z-0 mx-auto h-[300px] md:h-[400px] lg:h-[600px] mb-20 overflow-hidden rounded-3xl bg-gradient-to-tr from-[#03020c] via-[#0c0835] to-[#04020e]">
+               <div className="banner-section w-[95vw] lg:max-w-[1400px] relative z-0 mx-auto h-[300px] md:h-[400px] lg:h-[600px] mb-20 overflow-hidden rounded-3xl bg-linear-to-tr from-[#03020c] via-[#0c0835] to-[#04020e]">
                   <RobotModal />
                   <div className="absolute top-10 w-full z-10 text-center left-1/2 -translate-x-1/2 text-white pointer-events-none">
                      <h1 className="banner-title lg:text-7xl text-2xl md:text-5xl drop-shadow-lg">Hi, I'm {about.name}</h1>
@@ -146,7 +150,9 @@ function Home() {
                            <span className="">SCROLL</span>
                         </div>
                      </div>
-                     <img src="/me.png" className="about-img md:w-auto w-60 mx-auto" alt="" />
+                     <div className="about-img md:flex-1 w-full h-[300px] md:h-full mx-auto">
+                        <MeModal />
+                     </div>
                   </div>
                </div>
 
@@ -158,7 +164,7 @@ function Home() {
                      <div className="md:w-1/2 w-full h-[350px] md:h-[500px]">
                         <Earth />
                      </div>
-                     <div className="md:w-1/2 w-full text-[#1D232A] space-y-2 rounded-3xl bg-linear-to-b from-[#E6F9FF] to-white p-5 md:p-10">
+                     <div className="md:w-1/2 w-full text-[#1D232A] dark:text-white space-y-2 rounded-3xl bg-linear-to-b from-[#E6F9FF] to-white dark:from-white/10 dark:to-white/5 dark:backdrop-blur-md p-5 md:p-10">
                         <div>
                            <h3 className="text-3xl">Location</h3>
                            <p className="font-sans font-semibold">{about.location}</p>
@@ -180,6 +186,11 @@ function Home() {
                   <Skills />
                </div>
 
+               {/* Experience */}
+               <div className="gsap-reveal">
+                  <Experience />
+               </div>
+
                {/* Projects */}
                <div className="gsap-reveal">
                   <Projects />
@@ -195,12 +206,12 @@ function Home() {
                      </p>
                      <div className="flex flex-col md:flex-row gap-4 items-center justify-center">
                         <a href={`mailto:${settings.contactEmail}`} target="_blank">
-                           <button className="hover:bg-white duration-200 hover:text-[#FF5858] p-3 w-[20rem] border-4 border-white rounded-md bg-transparent focus:outline-none font-medium">
+                           <button className="hover:bg-white duration-200 hover:text-[#ff4d4d] p-3 w-[20rem] border-4 border-white rounded-md bg-transparent focus:outline-none font-medium">
                               {settings.contactEmail}
                            </button>
                         </a>
                         <a href={settings.resumeLink} target="_blank">
-                           <button className="p-3 w-[20rem] border-4 border-white hover:bg-transparent hover:text-white duration-200 rounded-md bg-white text-[#FF5858] focus:outline-none">
+                           <button className="p-3 w-[20rem] border-4 border-white hover:bg-transparent hover:text-white duration-200 rounded-md bg-white text-[#ff4d4d] focus:outline-none">
                               RESUME
                            </button>
                         </a>

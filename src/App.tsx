@@ -1,6 +1,5 @@
 import { lazy, Suspense } from "react";
 import { useRoutes } from "react-router-dom";
-import LazyLoading from "./components/Loading/LazyLoading";
 
 const Home = lazy(() => import("./Pages/Home"));
 const LoginAdmin = lazy(() => import("./Pages/LoginAdmin"));
@@ -10,7 +9,7 @@ const routes = [
   {
     path: "/",
     element: (
-      <Suspense fallback={<LazyLoading />}>
+      <Suspense fallback={null}>
         <Home />
       </Suspense>
     ),
@@ -18,7 +17,7 @@ const routes = [
   {
     path: "/login-admin",
     element: (
-      <Suspense fallback={<LazyLoading />}>
+      <Suspense fallback={null}>
         <LoginAdmin />
       </Suspense>
     ),
@@ -26,7 +25,7 @@ const routes = [
   {
     path: "/admin",
     element: (
-      <Suspense fallback={<LazyLoading />}>
+      <Suspense fallback={null}>
         <Admin />
       </Suspense>
     ),

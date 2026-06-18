@@ -1,0 +1,4 @@
+# AI Assistant & Agent Rules for Huy's Portfolio Workspace
+
+- **Skip Planning Mode**: For all code modifications and feature requests in this workspace, **DO NOT** create an `implementation_plan.md` or wait for plan approval. Directly write the code and apply changes to the files immediately.
+- **Direct Implementation**: The user has explicitly approved bypassing planning mode for all tasks in this repository.

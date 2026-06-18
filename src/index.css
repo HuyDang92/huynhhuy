@@ -49,7 +49,7 @@ canvas:active {
    background: tranparent;
 }
 .aboutMe {
-   background: linear-gradient(rgb(128, 223, 255) 0%, rgb(0, 191, 255) 70%);
+   background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
    display: block;
    width: 100%;
    height: 470px;
@@ -62,7 +62,7 @@ canvas:active {
    position: relative;
 }
 .contact {
-   background: linear-gradient(rgb(255, 136, 136) 30%, rgb(255, 85, 85) 100%);
+   background: linear-gradient(180deg, #ff8a8a 0%, #ff4d4d 100%);
    display: block;
    width: 100%;
    height: 350px;
@@ -74,6 +74,11 @@ canvas:active {
    transition: opacity 1.2s ease-in-out;
    position: relative;
 }
+html[data-theme="dark"] .aboutMe,
+html[data-theme="dark"] .contact {
+   filter: brightness(0.92) saturate(0.88);
+}
+
 .typing-text {
    font-size: 30px;
    display: inline-block;
