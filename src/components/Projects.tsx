@@ -4,31 +4,24 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import "slick-carousel/slick/slick.css";
 import { useRef } from "react";
 import { usePortfolio } from "../context/PortfolioContext";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 const SliderComponent = (Slider as any).default || Slider;
-
-const settings = {
-   dots: false,
-   infinite: true,
-   slidesToShow: 2,
-   slidesToScroll: 1,
-   autoplay: false,
-   nextArrow: <></>,
-   prevArrow: <></>,
-   responsive: [
-      {
-         breakpoint: 1024,
-         settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-         },
-      },
-   ],
-};
 
 function Projects() {
    const slider = useRef<any>(null);
    const { projects } = usePortfolio();
+   const isMobile = useIsMobile(1024);
+
+   const settings = {
+      dots: false,
+      infinite: true,
+      slidesToShow: isMobile ? 1 : 2,
+      slidesToScroll: 1,
+      autoplay: false,
+      nextArrow: <></>,
+      prevArrow: <></>,
+   };
 
    return (
       <div className="projects w-[95vw] lg:w-300  relative z-0 mx-auto mt-40">

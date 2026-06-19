@@ -5,6 +5,10 @@
    themes: light --default, dark;
 }
 
+/* Drive Tailwind's `dark:` variant from daisyUI's data-theme toggle
+   instead of the OS `prefers-color-scheme` (the v4 default). */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 html,
 body {
    overflow-x: hidden;
