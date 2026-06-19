@@ -52,8 +52,8 @@ function Projects() {
                   <div key={index} className="px-4">
                      <div className="flex flex-col gap-6">
                         {/* Image */}
-                        <div className="rounded-xl bg-[#49D1FF] w-fit p-2 shrink-0 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(73,209,255,0.6)]">
-                           <Image src={project?.thumb} width={320} className="rounded-xl" alt="" />
+                        <div className="rounded-xl bg-[#49D1FF] w-full max-w-[340px] p-2 shrink-0 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(73,209,255,0.6)]">
+                           <Image src={project?.thumb} className="w-full h-auto rounded-xl" alt="" />
                         </div>
                         
                         {/* Content */}
@@ -67,7 +67,7 @@ function Projects() {
                            <h3 className="">Technologies Used</h3>
                            <p className="font-sans font-semibold mb-4">{project?.technologies}</p>
                         </div>
-                        <div className="flex gap-4 items-center justify-start mt-4">
+                        <div className="flex flex-wrap gap-4 items-center justify-start mt-4">
                            {project?.type === "app" && (
                               <>
                                  <a href={project?.ios} target="_blank">

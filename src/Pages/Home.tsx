@@ -1,7 +1,4 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
-import { useRef } from "react";
-import { gsap } from "gsap";
-import { useGSAP } from "@gsap/react";
 import Header from "../components/Header";
 import Skills from "../components/Skills";
 import TypingTextEffect from "../components/TypingText";
@@ -11,36 +8,11 @@ import Stars3D from "../components/Stars3D";
 import Earth from "../components/Earth";
 import { usePortfolio } from "../context/PortfolioContext";
 import RobotModal from "../components/RobotModal";
-import MeModal from "../components/MeModal";
 import { Preloader } from "../components/Loading";
 import Experience from "../components/Experience";
 
-gsap.registerPlugin(useGSAP);
-
 function Home() {
-   const containerRef = useRef<HTMLDivElement>(null);
    const { about, settings } = usePortfolio();
-
-   useGSAP(
-      () => {
-         // Banner text entrance (one-time, no scroll listeners)
-         gsap.from(".banner-title", {
-            y: -40,
-            opacity: 0,
-            duration: 1,
-            ease: "power3.out",
-            delay: 0.3,
-         });
-         gsap.from(".banner-subtitle", {
-            y: 20,
-            opacity: 0,
-            duration: 1,
-            ease: "power3.out",
-            delay: 0.6,
-         });
-      },
-      { scope: containerRef },
-   );
 
    return (
       <>
@@ -50,7 +22,7 @@ function Home() {
          <div className="nebula-glow nebula-cyan" />
          <div className="nebula-glow nebula-pink" />
          <Header />
-         <div ref={containerRef}>
+         <div>
             <div className="mt-[90px]" id="smooth-content">
                {/* Banner */}
                <div className="banner-section w-[95vw] lg:max-w-[1400px] relative z-0 mx-auto h-[300px] md:h-[400px] lg:h-[600px] mb-20 overflow-hidden rounded-3xl bg-linear-to-tr from-[#03020c] via-[#0c0835] to-[#04020e]">
@@ -74,9 +46,7 @@ function Home() {
                            <span className="">SCROLL</span>
                         </div>
                      </div>
-                     <div className="about-img md:flex-1 w-full h-[340px] md:h-[380px] md:max-w-[420px] md:self-center mt-2 mb-8 md:my-0 mx-auto">
-                        <MeModal />
-                     </div>
+                     <img src="/me.png" className="about-img md:w-auto w-60 mx-auto" alt="" />
                   </div>
                </div>
 

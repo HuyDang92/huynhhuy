@@ -5,11 +5,18 @@
    themes: light --default, dark;
 }
 
+html,
+body {
+   overflow-x: hidden;
+   max-width: 100%;
+}
+
 body {
    font-family: "Bungee", sans-serif;
    background: radial-gradient(circle at 50% 50%, #e0f2fe 0%, #f8fafc 100%) !important;
    color: #0f172a;
    transition: background 0.3s ease, color 0.3s ease;
+   position: relative;
 }
 
 html[data-theme="dark"] body {
@@ -122,6 +129,12 @@ html[data-theme="dark"] .contact {
    opacity: 0.3;
    pointer-events: none;
    z-index: -2;
+}
+
+@media (max-width: 768px) {
+   .nebula-glow {
+      display: none;
+   }
 }
 
 .nebula-purple {
