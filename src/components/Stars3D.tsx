@@ -1,6 +1,7 @@
 import { useRef, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 function StarField() {
    const ref = useRef<THREE.Points>(null);
@@ -34,11 +35,17 @@ function StarField() {
 }
 
 export default function Stars3D() {
+   const isMobile = useIsMobile();
+
+   // Skip the full-screen WebGL starfield on mobile to free a whole context.
+   if (isMobile) return null;
+
    return (
       <Canvas
          camera={{ position: [0, 0, 5], fov: 60 }}
          style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: -1 }}
          dpr={[1, 1.5]}
+         gl={{ antialias: false, powerPreference: "high-performance" }}
       >
          <StarField />
       </Canvas>

@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 const EarthModel = () => {
    const earth = useGLTF("/3Dmodal/earth_modal/scene.gltf");
@@ -8,11 +9,13 @@ const EarthModel = () => {
 };
 
 const EarthCanvas = () => {
+   const isMobile = useIsMobile();
    return (
       <Canvas
-         shadows
+         shadows={!isMobile}
          frameloop="demand"
-         gl={{ preserveDrawingBuffer: true }}
+         dpr={[1, isMobile ? 1.5 : 2]}
+         gl={{ preserveDrawingBuffer: true, antialias: !isMobile, powerPreference: "high-performance" }}
          camera={{
             fov: 45,
             near: 0.1,
