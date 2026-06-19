@@ -1,7 +1,6 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useRef } from "react";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import Header from "../components/Header";
 import Skills from "../components/Skills";
@@ -11,13 +10,12 @@ import Projects from "../components/Projects";
 import Stars3D from "../components/Stars3D";
 import Earth from "../components/Earth";
 import { usePortfolio } from "../context/PortfolioContext";
-import CustomCursor from "../components/CustomCursor";
 import RobotModal from "../components/RobotModal";
 import MeModal from "../components/MeModal";
 import { Preloader } from "../components/Loading";
 import Experience from "../components/Experience";
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+gsap.registerPlugin(useGSAP);
 
 function Home() {
    const containerRef = useRef<HTMLDivElement>(null);
@@ -25,7 +23,7 @@ function Home() {
 
    useGSAP(
       () => {
-         // Banner text entrance
+         // Banner text entrance (one-time, no scroll listeners)
          gsap.from(".banner-title", {
             y: -40,
             opacity: 0,
@@ -40,79 +38,6 @@ function Home() {
             ease: "power3.out",
             delay: 0.6,
          });
-
-         // Banner image parallax on scroll
-         gsap.to(".banner-img", {
-            yPercent: 12,
-            ease: "none",
-            scrollTrigger: {
-               trigger: ".banner-section",
-               start: "top top",
-               end: "bottom top",
-               scrub: 1.5,
-            },
-         });
-
-         // About section - text slides from left, image from right
-         gsap.from(".about-text", {
-            x: -80,
-            opacity: 0,
-            duration: 1,
-            ease: "power3.out",
-            scrollTrigger: {
-               trigger: ".aboutMe",
-               start: "top 80%",
-               toggleActions: "play none none none",
-            },
-         });
-         gsap.from(".about-img", {
-            x: 80,
-            opacity: 0,
-            duration: 1,
-            ease: "power3.out",
-            scrollTrigger: {
-               trigger: ".aboutMe",
-               start: "top 80%",
-               toggleActions: "play none none none",
-            },
-         });
-
-         // Generic section reveals with stagger
-         const revealEls = gsap.utils.toArray<HTMLElement>(".gsap-reveal");
-         revealEls.forEach((el) => {
-            gsap.fromTo(
-               el,
-               { opacity: 0, y: 55 },
-               {
-                  opacity: 1,
-                  y: 0,
-                  duration: 0.85,
-                  ease: "power3.out",
-                  scrollTrigger: {
-                     trigger: el,
-                     start: "top 88%",
-                     toggleActions: "play none none none",
-                  },
-               },
-            );
-         });
-
-         // Contact section scale-in
-         gsap.fromTo(
-            ".contact",
-            { scale: 0.93, opacity: 0 },
-            {
-               scale: 1,
-               opacity: 1,
-               duration: 1,
-               ease: "power3.out",
-               scrollTrigger: {
-                  trigger: ".contact",
-                  start: "top 85%",
-                  toggleActions: "play none none none",
-               },
-            },
-         );
       },
       { scope: containerRef },
    );
@@ -120,7 +45,6 @@ function Home() {
    return (
       <>
          <Preloader />
-         <CustomCursor />
          <Stars3D />
          <div className="nebula-glow nebula-purple" />
          <div className="nebula-glow nebula-cyan" />
